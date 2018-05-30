@@ -47,9 +47,9 @@ passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
 app.use(express.static(path.join(__dirname, 'public')));
-app.use("/", express.static(__dirname + '/public/scipts/') );
+app.use("/", express.static(__dirname + '/public/scipt/') );
 app.use("/css", express.static(__dirname + '/public/css'));
-app.use("/bower_components", express.static(__dirname + '/bower_components'));
+app.use("/bower_components", express.static(__dirname + '/public/bower_components'));
 
 app.use('/users', users);
 
