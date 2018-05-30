@@ -18,7 +18,7 @@ tabtalent.controller('CompanyController', ['$http', '$scope', '$stateParams', '$
             $scope.company.name = $scope.selectedCompany.originalObject;
         }
         $scope.company.created_by = $rootScope.user.id;
-        $http.post('http://localhost/tab_api/index.php/company/addCompany', $scope.company).then(function (res) {
+        $http.post('https://glacial-reef-26552.herokuapp.com/index.php/company/addCompany', $scope.company).then(function (res) {
             $scope.companies.push( (res.data || {}).data);
             $scope.company = {};
             $scope.company.industries = [];
@@ -36,7 +36,7 @@ tabtalent.controller('CompanyController', ['$http', '$scope', '$stateParams', '$
     };
 
     $scope.getallCompanyData = function () {
-        $http.get('http://localhost/tab_api/index.php/company/getall').then(function (response) {
+        $http.get('https://glacial-reef-26552.herokuapp.com/index.php/company/getall').then(function (response) {
             $scope.companies = (response.data || {}).data || [];
         })    
     };

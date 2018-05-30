@@ -2,7 +2,7 @@ tabtalent.controller('SignupController', ['$http', '$scope', '$stateParams', '$s
 
     
     $scope.registerUser = function () {
-        $http.post('http://localhost/tab_api/index.php/users/signup', $scope.cred).then(function (res) {
+        $http.post('https://glacial-reef-26552.herokuapp.com/index.php/users/signup', $scope.cred).then(function (res) {
             $rootScope.user = (res.data || {}).data;
             $rootScope.user.experiences = [];
             $rootScope.user.skills = [];

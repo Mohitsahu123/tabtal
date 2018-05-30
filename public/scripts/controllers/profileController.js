@@ -57,7 +57,7 @@ tabtalent.controller('ProfileController', ['$http', '$scope', '$stateParams', '$
             }
         }
        
-        $http.post('http://localhost/tab_api/index.php/users/addExperience', $scope.experience).then(function (res) {
+        $http.post('https://glacial-reef-26552.herokuapp.com/index.php/users/addExperience', $scope.experience).then(function (res) {
            $scope.experience = (res.data || {}).data;
             $rootScope.user.experiences.push($scope.experience);
             localStorage.setItem('TabTalentUser', JSON.stringify($rootScope.user));
@@ -67,7 +67,7 @@ tabtalent.controller('ProfileController', ['$http', '$scope', '$stateParams', '$
     
     $scope.removeExperience = function (index) {
         
-        $http.post('http://localhost/tab_api/index.php/users/removeExperience', $rootScope.user.experiences[index]).then(function (res) {
+        $http.post('https://glacial-reef-26552.herokuapp.com/index.php/users/removeExperience', $rootScope.user.experiences[index]).then(function (res) {
             $rootScope.user.experiences.splice(index, 1);
             localStorage.setItem('TabTalentUser', JSON.stringify($rootScope.user));
         })
@@ -75,7 +75,7 @@ tabtalent.controller('ProfileController', ['$http', '$scope', '$stateParams', '$
     
     $scope.addSkill = function () {
         $scope.skill.user_id = $rootScope.user.id;
-        $http.post('http://localhost/tab_api/index.php/users/addSkill', $scope.skill).then(function (res) {
+        $http.post('https://glacial-reef-26552.herokuapp.com/index.php/users/addSkill', $scope.skill).then(function (res) {
             $scope.skill = (res.data || {}).data;
             $rootScope.user.skills.push($scope.skill);
             localStorage.setItem('TabTalentUser', JSON.stringify($rootScope.user));
@@ -85,7 +85,7 @@ tabtalent.controller('ProfileController', ['$http', '$scope', '$stateParams', '$
 
     $scope.addEducation = function () {
          $scope.education.user_id = $rootScope.user.id;
-        $http.post('http://localhost/tab_api/index.php/users/addEducation', $scope.education).then(function (res) {
+        $http.post('https://glacial-reef-26552.herokuapp.com/index.php/users/addEducation', $scope.education).then(function (res) {
             $scope.education = (res.data || {}).data;
             $rootScope.user.educations.push($scope.education);
             localStorage.setItem('TabTalentUser', JSON.stringify($rootScope.user));
@@ -94,14 +94,14 @@ tabtalent.controller('ProfileController', ['$http', '$scope', '$stateParams', '$
     };
 
     $scope.removeEducation = function (index) {
-        $http.post('http://localhost/tab_api/index.php/users/removeEducation', $rootScope.user.educations[index]).then(function (res) {
+        $http.post('https://glacial-reef-26552.herokuapp.com/index.php/users/removeEducation', $rootScope.user.educations[index]).then(function (res) {
             $rootScope.user.educations.splice(index, 1);
             localStorage.setItem('TabTalentUser', JSON.stringify($rootScope.user));
         })
     };
 
     $scope.getallCompanyData = function () {
-        $http.get('http://localhost/tab_api/index.php/company/getall').then(function (response) {
+        $http.get('https://glacial-reef-26552.herokuapp.com/index.php/company/getall').then(function (response) {
             $scope.companies = (response.data || {}).data;
         })
     };

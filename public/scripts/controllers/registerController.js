@@ -58,7 +58,7 @@ tabtalent.controller('RegisterController', ['$http', '$scope', '$stateParams', '
 
         console.log($rootScope.user.experiences);
         
-        $http.post('http://localhost/tab_api/index.php/users/update', $rootScope.user).then(function (res) { 
+        $http.post('https://glacial-reef-26552.herokuapp.com/index.php/users/update', $rootScope.user).then(function (res) { 
             $rootScope.user =  (res.data || {}).data;
             $rootScope.user.skills =  $rootScope.user.skills || [];
             $rootScope.user.educations = $rootScope.user.educations  || [];
@@ -79,7 +79,7 @@ tabtalent.controller('RegisterController', ['$http', '$scope', '$stateParams', '
     }
 
     $scope.getallCompanyData = function () {
-        $http.get('http://localhost/tab_api/index.php/company/getall').then(function (response) {
+        $http.get('https://glacial-reef-26552.herokuapp.com/index.php/company/getall').then(function (response) {
             $scope.companies = response.data;
         })
     };
